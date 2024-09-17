@@ -6,23 +6,31 @@ Create a web app with React that allows for users to generate and download memes
 
 It should allow the user to:
 
-Enter text for the top and bottom of the meme
+### Smaller Todos to start with:
 
-The top text box needs to have a label element associated with it containing the text Top text
+[] Connect to the meme website and see how you can pull the data, is it the same as with Node?
 
-The bottom text box needs to have a label element associated with it with the text Bottom text
+[] understand which state variables do I need to create
 
-Both text boxes should be empty when the page first loads
+[] Create inputs for the user to set the meme image
 
-Preview the generated meme
+[] Enter text for the top and bottom of the meme
 
-The image element needs to have an html attribute set as follows: data-test-id="meme-image"
+[]The top text box needs to have a label element associated with it containing the text Top text
 
-This image element should show a working image when the page first loads
+[]The bottom text box needs to have a label element associated with it with the text Bottom text
 
-Change the meme template (the background image)
+[]Both text boxes should be empty when the page first loads
 
-The meme template selector element needs to have a label element associated with it containing the text Meme template
+[] Preview the generated meme
+
+[] The image element needs to have an html attribute set as follows: data-test-id="meme-image"
+
+[] This image element should show a working image when the page first loads
+
+[] Change the meme template (the background image)
+
+[] The meme template selector element needs to have a label element associated with it containing the text Meme template
 
 If the user follows the steps below, the doge meme template needs to be selected:
 Click on the label of the meme template selector
@@ -30,12 +38,12 @@ Clear any existing value (eg. with a text box)
 Type the text doge
 Hit enter
 
-Download the meme by clicking on a button
+[] Download the meme by clicking on a button
 
-The button element needs to contain the text Download
+[] The button element needs to contain the text Download
 Stretch goals:
 
-Reduce the amount of times a meme image is generated (don't generate it every time a user presses a key). Instead, generate a new image when the user clicks a button
+[] Reduce the amount of times a meme image is generated (don't generate it every time a user presses a key). Instead, generate a new image when the user clicks a button
 
 The button element needs to have an html attribute set as follows: data-test-id="generate-meme"
 
