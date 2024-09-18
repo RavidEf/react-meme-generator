@@ -4,7 +4,7 @@ import { useState } from 'react';
 import logo from './logo.svg';
 
 export default function App() {
-  const [memeGen, setMemeGen] = useState([]);
+  const [memeGen, setMemeGen] = useState('');
   // const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const [userInputUpper, setUserInputUpper] = useState('');
@@ -18,16 +18,11 @@ export default function App() {
       <div style={{ marginTop: '100px' }}>
         <h1>This is an H1 </h1>
 
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        <form>
           <label htmlFor="Meme template">meme gen first </label>
           <input
-            value={memeGen}
-            type="text"
             id="Meme template"
+            placeholder="type doge"
             onChange={(event) => setMemeGen(event.currentTarget.value)}
           />
           <br />
@@ -54,18 +49,18 @@ export default function App() {
           <button>Generate meme</button>
           <br />
           <br />
-          {memeGen.length > 0 ? (
+          {memeGen && memeGen.length ? (
             <img
-              htmlFor=""
+              htmlFor="generated-image"
               style={{ height: '150px' }}
               src={`${urlImages}${memeGen}.jpg`}
               alt="meme-image"
             />
           ) : (
             <img
-              htmlFor=""
+              htmlFor="preview-image"
               style={{ height: '150px' }}
-              src="https://api.memegen.link/images/slap/example/example.png?api_key=myapikey42&watermark=upleveled.com"
+              src="https://api.memegen.link/images/slap/example/preview.png?api_key=myapikey42&watermark=upleveled.com"
               alt="meme-image"
             />
           )}
@@ -88,7 +83,8 @@ export default function App() {
   );
 }
 
-// fetch the data link and put it in the data array
+{
+  /* // fetch the data link and put it in the data array
 /* const fetchTemplates = () => {
     axios
       .get('https://api.memegen.link/templates/')
@@ -100,5 +96,5 @@ export default function App() {
         console.error('Error fetching templates:', error);
       });
   }; */
-
-//fetchTemplates();
+  //fetchTemplates();
+}
