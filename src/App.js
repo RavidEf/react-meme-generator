@@ -26,6 +26,7 @@ export default function App() {
           <label htmlFor="Meme template">meme gen first </label>
           <input
             value={memeGen}
+            type="text"
             id="Meme template"
             onChange={(event) => setMemeGen(event.currentTarget.value)}
           />
@@ -53,14 +54,25 @@ export default function App() {
           <button>Generate meme</button>
           <br />
           <br />
-          <img
-            htmlFor=""
-            style={{ height: '150px' }}
-            src={`${urlImages}${memeGen}/${userInputUpper}/${userInputLow}.jpg`}
-            alt="meme-image"
-          />
+          {memeGen.length > 0 ? (
+            <img
+              htmlFor=""
+              style={{ height: '150px' }}
+              src={`${urlImages}${memeGen}.jpg`}
+              alt="meme-image"
+            />
+          ) : (
+            <img
+              htmlFor=""
+              style={{ height: '150px' }}
+              src="https://api.memegen.link/images/slap/example/example.png?api_key=myapikey42&watermark=upleveled.com"
+              alt="meme-image"
+            />
+          )}
         </form>
-
+        <br />
+        <br />
+        <button>Download</button>
         {/* <div>
           Hello again
           {image.map((imageItem) => {
