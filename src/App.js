@@ -14,12 +14,16 @@ export default function App() {
 
   return (
     <div className="App">
-      <div>{/*   */}</div>
       <div style={{ marginTop: '100px' }}>
         <h1>This is an H1 </h1>
 
         <form>
-          <label htmlFor="Meme template">meme gen first </label>
+          <label
+            htmlFor="Meme template"
+            onSubmit={(event) => event.preventDefault()}
+          >
+            meme gen first{' '}
+          </label>
           <input
             id="Meme template"
             placeholder="type doge"
@@ -32,7 +36,9 @@ export default function App() {
           <input
             value={userInputUpper}
             id="Top text"
-            onChange={(event) => setUserInputUpper(event.currentTarget.value)}
+            onChange={(event) => {
+              setUserInputUpper(event.currentTarget.value);
+            }}
           />
           <br />
 
@@ -49,11 +55,11 @@ export default function App() {
           <button>Generate meme</button>
           <br />
           <br />
-          {memeGen && memeGen.length ? (
+          {memeGen.length ? (
             <img
               htmlFor="generated-image"
               style={{ height: '150px' }}
-              src={`${urlImages}${memeGen}.jpg`}
+              src={`${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
               alt="meme-image"
             />
           ) : (
