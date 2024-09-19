@@ -18,11 +18,11 @@ export default function App() {
 
         <form
           onSubmit={(event) => {
-            event.preventDefault();
-            setFinalUrl(
-              `${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`,
+            event.preventDefault(
+              setFinalUrl(
+                `${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`,
+              ),
             );
-            console.log(finalUrl);
           }}
         >
           <label htmlFor="meme-template">Meme template</label>
@@ -54,7 +54,7 @@ export default function App() {
               <img
                 data-test-id="meme-image"
                 style={{ height: '250px' }}
-                src={`${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
+                src={`${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
                 alt="meme-image-doge"
               />
               <br />
@@ -62,12 +62,14 @@ export default function App() {
           ) : (
             <img
               data-test-id="meme-image"
-              style={{ height: '150px' }}
-              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
+              style={{ height: '350px' }}
+              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
               alt="meme-image-preview"
             />
           )}
+          <button>Generate</button>
         </form>
+        <button>Download</button>
 
         <br />
       </div>
