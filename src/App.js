@@ -11,20 +11,20 @@ export default function App() {
 
   const urlImages = 'https://api.memegen.link/images/';
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const generatedUrl = `${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`;
+
+    setFinalUrl(generatedUrl);
+  };
+
   return (
     <div id="App">
       <div style={{ marginTop: '100px' }}>
         <h1>Free Meme Generator</h1>
 
-        <form
-          onSubmit={(event) => {
-            event.preventDefault(
-              setFinalUrl(
-                `${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`,
-              ),
-            );
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <label htmlFor="meme-template">Meme template</label>
           <input
             id="meme-template"
@@ -49,7 +49,7 @@ export default function App() {
             onChange={(event) => setUserInputLow(event.currentTarget.value)}
           />
 
-          {memeGen && memeGen.length ? (
+          {/*   {memeGen && memeGen.length ? (
             <div>
               <img
                 data-test-id="meme-image"
@@ -66,9 +66,30 @@ export default function App() {
               src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
               alt="meme-image-preview"
             />
-          )}
-          <button>Generate</button>
+          )} */}
+          <button type="submit">Generate</button>
         </form>
+
+        {/* Display the generated image if finalUrl is set */}
+        {finalUrl ? (
+          <div>
+            <img
+              data-test-id="meme-image"
+              style={{ height: '250px', marginTop: '20px' }}
+              src={finalUrl}
+              alt="Generated meme"
+            />
+          </div>
+        ) : (
+          <div>
+            <img
+              data-test-id="meme-image"
+              style={{ height: '250px', marginTop: '20px' }}
+              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
+              alt="Generated meme"
+            />
+          </div>
+        )}
         <button>Download</button>
 
         <br />
@@ -76,7 +97,3 @@ export default function App() {
     </div>
   );
 }
-
-// {<a href={finalUrl} download="meme-image">
-//Download
-//</a>}
