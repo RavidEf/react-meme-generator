@@ -1,11 +1,9 @@
 import './App.css';
-import axios from 'axios';
+import './app.scss';
 import { useState } from 'react';
-import styles from './app.scss';
-// import styles from './index.css';
-import logo from './logo.svg';
 
 export default function App() {
+  // import styles from './index.css';
   const [memeGen, setMemeGen] = useState('');
   const [userInputUpper, setUserInputUpper] = useState('');
   const [userInputLow, setUserInputLow] = useState('');
@@ -16,7 +14,7 @@ export default function App() {
   return (
     <div id="App">
       <div style={{ marginTop: '100px' }}>
-        <h1>This is an H1 </h1>
+        <h1>Free Meme Generator</h1>
 
         <form
           onSubmit={(event) => {
@@ -51,8 +49,6 @@ export default function App() {
             onChange={(event) => setUserInputLow(event.currentTarget.value)}
           />
 
-          <button>Generate meme</button>
-
           {memeGen && memeGen.length ? (
             <div>
               <img
@@ -80,20 +76,4 @@ export default function App() {
       </div>
     </div>
   );
-}
-
-{
-  /* // fetch the data link and put it in the data array
-/* const fetchTemplates = () => {
-    axios
-      .get('https://api.memegen.link/templates/')
-      .then((response) => {
-        // Step 3: Store the fetched data in state
-        setImage(response.data.slice(0, 10));
-      })
-      .catch((error) => {
-        console.error('Error fetching templates:', error);
-      });
-  }; */
-  //fetchTemplates();
 }
