@@ -55,7 +55,7 @@ export default function App() {
                 htmlFor="generated-image"
                 style={{ height: '250px' }}
                 src={`${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
-                alt="meme-image"
+                alt="meme-image-doge"
               />
               <br />
               <a href={finalUrl} download="meme-image">
@@ -67,7 +67,7 @@ export default function App() {
               data-test-id="meme-image"
               style={{ height: '150px' }}
               src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
-              alt="meme-image"
+              alt="meme-image-preview"
             />
           )}
         </form>
