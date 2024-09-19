@@ -59,7 +59,7 @@ export default function App() {
             src={
               finalUrl
                 ? finalUrl
-                : `https://api.memegen.link/images/${memeGen.length > 0 ? memeGen : 'slap'}${userInputUpper.length > 0 ? `/${userInputUpper}` : ''}${userInputLow.length > 0 ? `/${userInputLow}` : '/'}.png`
+                : `https://api.memegen.link/images/${memeGen.length > 0 ? memeGen : 'slap'}${userInputUpper.length > 0 ? `/${encodeURIComponent(userInputUpper)}` : ''}${userInputLow.length > 0 ? `/${encodeURIComponent(userInputLow)}` : '/'}.png`
             }
             alt="Generated meme"
           />
