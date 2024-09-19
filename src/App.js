@@ -48,52 +48,38 @@ export default function App() {
             id="Bottom-text"
             onChange={(event) => setUserInputLow(event.currentTarget.value)}
           />
-
-          {/*   {memeGen && memeGen.length ? (
-            <div>
-              <img
-                data-test-id="meme-image"
-                style={{ height: '250px' }}
-                src={`${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
-                alt="meme-image-doge"
-              />
-              <br />
-            </div>
-          ) : (
-            <img
-              data-test-id="meme-image"
-              style={{ height: '350px' }}
-              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
-              alt="meme-image-preview"
-            />
-          )} */}
           <button type="submit">Generate</button>
         </form>
 
         {/* Display the generated image if finalUrl is set */}
-        {finalUrl ? (
-          <div>
-            <img
-              data-test-id="meme-image"
-              style={{ height: '250px', marginTop: '20px' }}
-              src={finalUrl}
-              alt="Generated meme"
-            />
-          </div>
-        ) : (
-          <div>
-            <img
-              data-test-id="meme-image"
-              style={{ height: '250px', marginTop: '20px' }}
-              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
-              alt="Generated meme"
-            />
-          </div>
-        )}
+        <div>
+          <img
+            data-test-id="meme-image"
+            style={{ height: '250px', marginTop: '20px' }}
+            src={
+              finalUrl
+                ? finalUrl
+                : `https://api.memegen.link/images/${memeGen.length > 0 ? memeGen : 'slap'}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`
+            }
+            alt="Generated meme"
+          />
+        </div>
+
         <button>Download</button>
 
         <br />
       </div>
     </div>
   );
+}
+
+{
+  /* <div>
+            <img
+              data-test-id="meme-image"
+              style={{ height: '250px', marginTop: '20px' }}
+              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
+              alt="Generated meme"
+            />
+          </div> */
 }
