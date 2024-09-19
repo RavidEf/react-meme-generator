@@ -14,7 +14,7 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const generatedUrl = `${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`;
+    const generatedUrl = `${urlImages}${memeGen.length > 0 ? memeGen : 'slap'}${userInputUpper.length > 0 ? `/${encodeURIComponent(userInputUpper.replace(/ /g, '-'))}` : ''}${userInputLow.length > 0 ? `/${encodeURIComponent(userInputLow.replace(/ /g, '-'))}` : ''}.png`;
 
     setFinalUrl(generatedUrl);
   };
