@@ -52,7 +52,7 @@ export default function App() {
           {memeGen && memeGen.length ? (
             <div>
               <img
-                htmlFor="generated-image"
+                data-test-id="meme-image"
                 style={{ height: '250px' }}
                 src={`${urlImages}${memeGen}/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
                 alt="meme-image-doge"
