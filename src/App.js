@@ -58,9 +58,6 @@ export default function App() {
                 alt="meme-image-doge"
               />
               <br />
-              <a href={finalUrl} download="meme-image">
-                Download
-              </a>
             </div>
           ) : (
             <img
@@ -77,3 +74,7 @@ export default function App() {
     </div>
   );
 }
+
+// {<a href={finalUrl} download="meme-image">
+//Download
+//</a>}
