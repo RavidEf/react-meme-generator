@@ -66,7 +66,7 @@ export default function App() {
             <img
               data-test-id="meme-image"
               style={{ height: '150px' }}
-              src="https://api.memegen.link/images/slap/example/preview.png?api_key=myapikey42&watermark=upleveled.com"
+              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.jpg`}
               alt="meme-image"
             />
           )}
