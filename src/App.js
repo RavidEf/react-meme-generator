@@ -18,11 +18,11 @@ export default function App() {
 
     const upperText =
       userInputUpper.length > 0
-        ? encodeURIComponent(userInputUpper.replace(/ /g, '-'))
+        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '-'))
         : '_';
     const lowerText =
       userInputLow.length > 0
-        ? encodeURIComponent(userInputLow.replace(/ /g, '-'))
+        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '-'))
         : '_';
 
     const generatedUrl = `${urlImages}${memeGen}/${upperText}/${lowerText}${png}`;
