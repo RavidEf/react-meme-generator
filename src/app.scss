@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Ensures the full page height is used */
+  height: 100vh;
   background-color: #f7ebbd;
   padding: 20px;
   box-sizing: border-box;
@@ -14,7 +14,7 @@
 
 h1 {
   color: #333;
-  margin-bottom: 10px; /* Less margin for closer spacing */
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -66,26 +66,11 @@ button:hover {
   background-color: #0056b3;
 }
 
-img {
+#img {
+  flex: content;
+  flex-direction: row;
   margin-top: 15px;
-  max-width: 100%;
-  height: auto;
+  width: 150%;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-  margin-top: 10px; /* Less margin between image and download button */
-  width: 100%; /* Make the download button align with the form */
-  max-width: 350px; /* Align with the form width */
-  display: flex;
-}
-
-a {
-  background-color: #0056b3;
-  color: white;
-  padding: 15px 25px;
-  text-decoration: none;
-  margin: 100px;
-  border-radius: 10px;
 }

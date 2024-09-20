@@ -4,17 +4,28 @@ import { useState } from 'react';
 
 export default function App() {
   // import styles from './index.css';
-  const [memeGen, setMemeGen] = useState('');
+  const [memeGen, setMemeGen] = useState('slap');
   const [userInputUpper, setUserInputUpper] = useState('');
   const [userInputLow, setUserInputLow] = useState('');
   const [finalUrl, setFinalUrl] = useState('');
 
+  const png = `.png`;
   const urlImages = 'https://api.memegen.link/images/';
+  const defaultUrl = `${urlImages}slap/_/_.png`;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const generatedUrl = `${urlImages}${memeGen.length > 0 ? memeGen : 'slap'}${userInputUpper.length > 0 ? `/${encodeURIComponent(userInputUpper.replace(/ /g, '-'))}` : ''}${userInputLow.length > 0 ? `/${encodeURIComponent(userInputLow.replace(/ /g, '-'))}` : ''}.png`;
+    const upperText =
+      userInputUpper.length > 0
+        ? encodeURIComponent(userInputUpper.replace(/ /g, '-'))
+        : '_';
+    const lowerText =
+      userInputLow.length > 0
+        ? encodeURIComponent(userInputLow.replace(/ /g, '-'))
+        : '_';
+
+    const generatedUrl = `${urlImages}${memeGen}/${upperText}/${lowerText}${png}`;
 
     setFinalUrl(generatedUrl);
   };
@@ -25,13 +36,6 @@ export default function App() {
         <h1>Free Meme Generator</h1>
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="meme-template">Meme template</label>
-          <input
-            id="meme-template"
-            placeholder="type doge"
-            onChange={(event) => setMemeGen(event.currentTarget.value)}
-          />
-
           <br />
           <label htmlFor="Top-text">Top text</label>
           <input
@@ -48,23 +52,25 @@ export default function App() {
             id="Bottom-text"
             onChange={(event) => setUserInputLow(event.currentTarget.value)}
           />
+          <br />
+          <label htmlFor="meme-template">Meme template</label>
+          <input
+            id="meme-template"
+            placeholder="type something"
+            onChange={(event) => setMemeGen(event.currentTarget.value)}
+          />
           <button type="submit">Generate</button>
         </form>
 
         {/* Display the generated image if finalUrl is set */}
-        <div>
+        <div className="img">
           <img
             data-test-id="meme-image"
             style={{ height: '250px', marginTop: '20px' }}
-            src={
-              finalUrl
-                ? finalUrl
-                : `https://api.memegen.link/images/${memeGen.length > 0 ? memeGen : 'slap'}${userInputUpper.length > 0 ? `/${encodeURIComponent(userInputUpper.replace(/ /g, '-'))}` : ''}${userInputLow.length > 0 ? `/${encodeURIComponent(userInputLow.replace(/ /g, '-'))}` : '/'}.png`
-            }
+            src={finalUrl ? finalUrl : defaultUrl}
             alt="Generated meme"
           />
         </div>
-
         <button>Download</button>
 
         <br />
@@ -74,6 +80,7 @@ export default function App() {
 }
 
 {
+  /*  */
   /* <div>
             <img
               data-test-id="meme-image"
