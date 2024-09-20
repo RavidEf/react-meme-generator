@@ -4,7 +4,6 @@ import FileSaver from 'file-saver';
 import { useState } from 'react';
 
 export default function App() {
-  // import styles from './index.css';
   const [memeGen, setMemeGen] = useState('aag');
   const [userInputUpper, setUserInputUpper] = useState('');
   const [userInputLow, setUserInputLow] = useState('');
@@ -87,16 +86,4 @@ export default function App() {
       </div>
     </div>
   );
-}
-
-{
-  /*  */
-  /* <div>
-            <img
-              data-test-id="meme-image"
-              style={{ height: '250px', marginTop: '20px' }}
-              src={`${urlImages}slap/${userInputUpper.length > 0 ? userInputUpper : '_'}/${userInputLow.length > 0 ? userInputLow : '_'}.png`}
-              alt="Generated meme"
-            />
-          </div> */
 }
