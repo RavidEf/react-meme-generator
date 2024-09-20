@@ -1,5 +1,6 @@
 import './App.css';
 import './app.scss';
+import FileSaver from 'file-saver';
 import { useState } from 'react';
 
 export default function App() {
@@ -74,7 +75,13 @@ export default function App() {
             alt="Generated meme"
           />
         </div>
-        <button>Download</button>
+        <button
+          onClick={() => {
+            FileSaver.saveAs(finalUrl, 'meme.jpg');
+          }}
+        >
+          Download
+        </button>
 
         <br />
       </div>

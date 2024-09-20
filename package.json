@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@upleveled/react-scripts": "5.0.13",
+    "file-saver": "^2.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "1.78.0"
