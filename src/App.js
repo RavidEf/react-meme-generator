@@ -16,16 +16,19 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Ensure both inputs and template are being trimmed and encoded properly
     const upperText =
-      userInputUpper.length > 0
+      userInputUpper.trim().length > 0
         ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '-'))
         : '_';
     const lowerText =
-      userInputLow.length > 0
+      userInputLow.trim().length > 0
         ? encodeURIComponent(userInputLow.trim().replace(/ /g, '-'))
         : '_';
+    const template = memeGen.trim().length > 0 ? memeGen.trim() : 'slap';
 
-    const generatedUrl = `${urlImages}${memeGen}/${upperText}/${lowerText}${png}`;
+    // Generate the correct URL
+    const generatedUrl = `${urlImages}${template}/${upperText}/${lowerText}${png}`;
 
     setFinalUrl(generatedUrl);
   };
