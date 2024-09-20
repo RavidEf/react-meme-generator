@@ -4,32 +4,33 @@ import { useState } from 'react';
 
 export default function App() {
   // import styles from './index.css';
-  const [memeGen, setMemeGen] = useState('slap');
+  const [memeGen, setMemeGen] = useState('aag');
   const [userInputUpper, setUserInputUpper] = useState('');
   const [userInputLow, setUserInputLow] = useState('');
   const [finalUrl, setFinalUrl] = useState('');
 
   const png = `.png`;
   const urlImages = 'https://api.memegen.link/images/';
-  const defaultUrl = `${urlImages}slap.png`;
+  const defaultUrl = `${urlImages}${memeGen}${png}`;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const upperText =
-      userInputUpper.length > 0
-        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '_'))
-        : '_';
+      userInputUpper.trim().length > 0
+        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '-'))
+        : '_'; //
     const lowerText =
-      userInputLow.length > 0
-        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '_'))
-        : '_';
-    const template = memeGen.length > 0 ? memeGen : 'slap';
+      userInputLow.trim().length > 0
+        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '-'))
+        : '_'; //
+    const template = memeGen.trim().length > 0 ? memeGen.trim() : 'aag';
 
     // Generate the correct URL
     const generatedUrl = `${urlImages}${template}/${upperText}/${lowerText}${png}`;
 
     setFinalUrl(generatedUrl);
+    console.log('Generated URL: ', generatedUrl);
   };
 
   return (
