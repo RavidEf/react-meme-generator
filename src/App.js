@@ -18,12 +18,12 @@ export default function App() {
 
     const upperText =
       userInputUpper.trim().length > 0
-        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '-'))
-        : '_'; //
+        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '%2F'))
+        : '%2F'; //
     const lowerText =
       userInputLow.trim().length > 0
-        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '-'))
-        : '_'; //
+        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '%2F'))
+        : '%2F'; //
     const template = memeGen.trim().length > 0 ? memeGen.trim() : 'aag';
 
     // Generate the correct URL
