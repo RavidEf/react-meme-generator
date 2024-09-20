@@ -7,7 +7,9 @@ export default function App() {
   const [memeGen, setMemeGen] = useState('slap');
   const [userInputUpper, setUserInputUpper] = useState('');
   const [userInputLow, setUserInputLow] = useState('');
-  const [finalUrl, setFinalUrl] = useState('');
+  const [finalUrl, setFinalUrl] = useState(
+    'https://api.memegen.link/images/slap/_/_.png',
+  );
 
   const png = `.png`;
   const urlImages = 'https://api.memegen.link/images/';
