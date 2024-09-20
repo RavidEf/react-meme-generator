@@ -9,10 +9,9 @@ export default function App() {
   const [userInputLow, setUserInputLow] = useState('');
   const [finalUrl, setFinalUrl] = useState('');
 
-  const waterMArk = '?api_key=myapikey42&watermark=Ravid-Efroni';
   const png = `.png`;
   const urlImages = 'https://api.memegen.link/images/';
-  const defaultUrl = `${urlImages}${memeGen}${png}${waterMArk}`;
+  const defaultUrl = `${urlImages}${memeGen}${png}`;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,7 +27,7 @@ export default function App() {
     const template = memeGen.trim().length > 0 ? memeGen.trim() : 'aag';
 
     // Generate the correct URL
-    const generatedUrl = `${urlImages}${template}/${upperText}/${lowerText}${png}${waterMArk}`;
+    const generatedUrl = `${urlImages}${template}/${upperText}/${lowerText}${png}`;
 
     setFinalUrl(generatedUrl);
     console.log('Generated URL: ', generatedUrl);
@@ -63,7 +62,9 @@ export default function App() {
               onChange={(event) => setMemeGen(event.currentTarget.value)}
             />
 
-            <button data-test-id="generate-meme">Generate</button>
+            <button data-test-id="generate-meme" id="congrats">
+              Generate
+            </button>
           </form>
 
           {/* Display the generated image if finalUrl is set */}
