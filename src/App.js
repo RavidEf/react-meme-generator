@@ -35,54 +35,57 @@ export default function App() {
 
   return (
     <div id="App">
-      <div style={{ marginTop: '100px' }}>
+      <div>
         <h1>Free Meme Generator</h1>
+        <div className="form-container">
+          <form id="form-container" onSubmit={handleSubmit}>
+            <br />
+            <label htmlFor="Top-text">Top text</label>
+            <input
+              value={userInputUpper}
+              id="Top-text"
+              onChange={(event) => {
+                setUserInputUpper(event.currentTarget.value);
+              }}
+            />
+            <label htmlFor="Bottom-text">Bottom text</label>
+            <input
+              value={userInputLow}
+              id="Bottom-text"
+              onChange={(event) => setUserInputLow(event.currentTarget.value)}
+            />
+            <br />
+            <label htmlFor="meme-template">Meme template</label>
+            <input
+              id="meme-template"
+              placeholder="type something"
+              onChange={(event) => setMemeGen(event.currentTarget.value)}
+            />
 
-        <form onSubmit={handleSubmit}>
-          <br />
-          <label htmlFor="Top-text">Top text</label>
-          <input
-            value={userInputUpper}
-            id="Top-text"
-            onChange={(event) => {
-              setUserInputUpper(event.currentTarget.value);
-            }}
-          />
-          <label htmlFor="Bottom-text">Bottom text</label>
-          <input
-            value={userInputLow}
-            id="Bottom-text"
-            onChange={(event) => setUserInputLow(event.currentTarget.value)}
-          />
-          <br />
-          <label htmlFor="meme-template">Meme template</label>
-          <input
-            id="meme-template"
-            placeholder="type something"
-            onChange={(event) => setMemeGen(event.currentTarget.value)}
-          />
+            <button data-test-id="generate-meme">Generate</button>
+          </form>
 
-          <button data-test-id="generate-meme">Generate</button>
-        </form>
+          {/* Display the generated image if finalUrl is set */}
+          <div className="img-container">
+            <div className="img">
+              <img
+                data-test-id="meme-image"
+                src={finalUrl ? finalUrl : defaultUrl}
+                alt="Generated meme"
+              />
+            </div>
+            <button
+              className="download-button"
+              onClick={() => {
+                FileSaver.saveAs(finalUrl, `${memeGen} meme.jpg`);
+              }}
+            >
+              Download
+            </button>
 
-        {/* Display the generated image if finalUrl is set */}
-        <div className="img">
-          <img
-            data-test-id="meme-image"
-            style={{ height: '250px', marginTop: '20px' }}
-            src={finalUrl ? finalUrl : defaultUrl}
-            alt="Generated meme"
-          />
+            <br />
+          </div>
         </div>
-        <button
-          onClick={() => {
-            FileSaver.saveAs(finalUrl, `${memeGen} meme.jpg`);
-          }}
-        >
-          Download
-        </button>
-
-        <br />
       </div>
     </div>
   );
