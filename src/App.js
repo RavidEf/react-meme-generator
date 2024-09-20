@@ -77,7 +77,7 @@ export default function App() {
         </div>
         <button
           onClick={() => {
-            FileSaver.saveAs(finalUrl, 'meme.jpg');
+            FileSaver.saveAs(finalUrl, `${memeGen} meme.jpg`);
           }}
         >
           Download
