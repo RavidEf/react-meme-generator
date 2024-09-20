@@ -18,12 +18,12 @@ export default function App() {
 
     const upperText =
       userInputUpper.trim().length > 0
-        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '%2F'))
-        : '%2F'; //
+        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '_'))
+        : '_'; //
     const lowerText =
       userInputLow.trim().length > 0
-        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '%2F'))
-        : '%2F'; //
+        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '_'))
+        : '_'; //
     const template = memeGen.trim().length > 0 ? memeGen.trim() : 'aag';
 
     // Generate the correct URL
@@ -48,7 +48,6 @@ export default function App() {
               setUserInputUpper(event.currentTarget.value);
             }}
           />
-
           <label htmlFor="Bottom-text">Bottom text</label>
           <input
             value={userInputLow}
@@ -62,7 +61,8 @@ export default function App() {
             placeholder="type something"
             onChange={(event) => setMemeGen(event.currentTarget.value)}
           />
-          <button type="submit">Generate</button>
+
+          <button data-test-id="generate-meme">Generate</button>
         </form>
 
         {/* Display the generated image if finalUrl is set */}
