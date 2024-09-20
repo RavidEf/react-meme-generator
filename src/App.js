@@ -13,20 +13,16 @@ export default function App() {
 
   const png = `.png`;
   const urlImages = 'https://api.memegen.link/images/';
-  const defaultUrl = `${urlImages}slap/_/_.png`;
+  const defaultUrl = `${urlImages}slap.png`;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Ensure both inputs and template are being trimmed and encoded properly
     const upperText =
-      userInputUpper.trim().length > 0
-        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '-'))
-        : '_';
+      userInputUpper.trim().length > 0 ? userInputUpper.trim() : '%20';
     const lowerText =
-      userInputLow.trim().length > 0
-        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '-'))
-        : '_';
+      userInputLow.trim().length > 0 ? userInputLow.trim() : '%20';
     const template = memeGen.trim().length > 0 ? memeGen.trim() : 'slap';
 
     // Generate the correct URL
