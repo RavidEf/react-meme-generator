@@ -7,9 +7,7 @@ export default function App() {
   const [memeGen, setMemeGen] = useState('slap');
   const [userInputUpper, setUserInputUpper] = useState('');
   const [userInputLow, setUserInputLow] = useState('');
-  const [finalUrl, setFinalUrl] = useState(
-    'https://api.memegen.link/images/slap/_/_.png',
-  );
+  const [finalUrl, setFinalUrl] = useState('');
 
   const png = `.png`;
   const urlImages = 'https://api.memegen.link/images/';
@@ -18,12 +16,15 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Ensure both inputs and template are being trimmed and encoded properly
     const upperText =
-      userInputUpper.trim().length > 0 ? userInputUpper.trim() : '%20';
+      userInputUpper.length > 0
+        ? encodeURIComponent(userInputUpper.trim().replace(/ /g, '_'))
+        : '_';
     const lowerText =
-      userInputLow.trim().length > 0 ? userInputLow.trim() : '%20';
-    const template = memeGen.trim().length > 0 ? memeGen.trim() : 'slap';
+      userInputLow.length > 0
+        ? encodeURIComponent(userInputLow.trim().replace(/ /g, '_'))
+        : '_';
+    const template = memeGen.length > 0 ? memeGen : 'slap';
 
     // Generate the correct URL
     const generatedUrl = `${urlImages}${template}/${upperText}/${lowerText}${png}`;
